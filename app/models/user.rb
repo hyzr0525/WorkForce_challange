@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   has_secure_password
   
-  validates :name, uniqueness: true, presence: true
-  validates :password_digest, presence: true, length:{minimum: 6, message: "minimum 6 characters"}, conformation: true
-  validates :email_address, presence: true
+  validates :name, presence: true
+  validates :password, presence: true, length:{minimum: 6, message: "minimum 6 characters"}
+  validates :email_address, presence: true, uniqueness:true
 end
