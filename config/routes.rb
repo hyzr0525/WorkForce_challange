@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :shifts, only:[:show, :index, :create, :update, :destroy]
-  resources :users, only:[:show, :index, :create, :update]
-  resources :organisations, only:[:show, :index, :create, :destroy, :update]
+  resources :shifts
+  resources :users, only:[:show, :create, :update]
+  resources :organisations
   
   get "/me", to: "users#show"
   post "/signup", to: "users#create"
