@@ -1,11 +1,11 @@
 class ShiftsController < ApplicationController
     def index
-        shifts = Shift.all
-        render json: shifts
+        user_shifts = current_user.shifts
+        render json: user_shifts
     end
 
     def show
-        shift = Shift.find_by(id: params[:id])
+        shift = current_user.shifts.find_by(id: params[:id])
         if shift
             render json: shift
         else 
@@ -14,7 +14,7 @@ class ShiftsController < ApplicationController
     end
 
     def create
-        new_shift = Shift.new(shifts_params)
+        new_shift = current_user.shifts.new(shifts_params)
         if new_shift.save
             render json: new_shift
         else 
@@ -23,7 +23,7 @@ class ShiftsController < ApplicationController
     end
 
     def update
-        shift = Shift.find_by(id: params[:id])
+        shift = current_user.shifts.find_by(id: params[:id])
         if shift
             shift.update(shifts_params)
             render json: shift
@@ -33,11 +33,11 @@ class ShiftsController < ApplicationController
     end
 
     def destroy
-        shift = Shift.find_by(id: params[:id])
+        shift = current_user.shifts.find_by(id: params[:id])
         if shift
-            shifts = Shift.all
             shift.destroy
-            render json: shift
+            shifts = current_user.shifts
+            render json: shifts
         else 
             render json: {error: "shift not found"}, status: :not_found
         end
