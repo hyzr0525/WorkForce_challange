@@ -6,3 +6,10 @@ export const setCurrentUser = (user) => {
         payload: user,
     }
 }
+
+export const setLoggedIn = (boolean) => {
+    return {
+        type: ActionTypes.SET_LOGGED_IN,
+        payload: boolean,
+    }
+}

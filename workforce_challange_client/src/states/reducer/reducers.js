@@ -7,5 +7,13 @@ export const setCurrentUser = (state=[], action) =>{
         default:
             return state
     }
-        
+}
+
+export const setLoggedIn = (state = false, action) =>{
+    switch(action.type){
+        case ActionTypes.SET_LOGGED_IN:
+            return state = action.payload;
+        default:
+            return state
+    }
 }
