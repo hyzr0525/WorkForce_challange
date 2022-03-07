@@ -6,6 +6,7 @@ import {Route, Routes} from 'react-router-dom'
 import Header from './Header';
 import {useDispatch} from "react-redux"
 import {setCurrentUser, setLoggedIn} from "./states/action/actionCreater"
+import UserPage from "./userPage/UserPage"
 
 function App() {
 
@@ -34,8 +35,10 @@ function App() {
   return (
     <div className="App">
         <Header />
+        
       <Routes>
         <Route exact path="/" element={<LogInPage />} />
+        <Route exact path="/User" element={<UserPage />} />
       </Routes>
     </div>
   );
