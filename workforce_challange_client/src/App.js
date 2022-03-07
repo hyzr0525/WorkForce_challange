@@ -4,8 +4,13 @@ import LogInPage from './logInPage/LogInPage';
 import {useEffect, useState} from 'react'
 import {Route, Routes} from 'react-router-dom'
 import Header from './Header';
+import {useDispatch} from "react-redux"
+import {setCurrentUser, setLoggedIn} from "./states/action/actionCreater"
 
 function App() {
+
+  const dispatch = useDispatch();
+  
 
   useEffect(()=>{
     fetch("http://localhost:3000/organisations")
@@ -15,7 +20,13 @@ function App() {
     fetch('/me')
     .then(res => res.json())
     .then(user => {
-      console.log(user)
+      dispatch(setCurrentUser(user))
+      if (user.error) {
+      dispatch(setLoggedIn(false))
+      console.log(user.error)}
+      else {
+      dispatch(setLoggedIn(true))
+    console.log(user)}
     })
 
   }, [])

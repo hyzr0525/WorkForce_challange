@@ -6,18 +6,28 @@ import {setLoggedIn} from './states/action/actionCreater'
 function Header() {
 
   const dispatch = useDispatch()
+  const loggedIn = useSelector((state)=> state.setLoggedIn)
+  const currentUser = useSelector((state) => state.setCurrentUser)
   let history = useNavigate()
 
+  const userItems = 
+    <>
+      <p>Logged in as {currentUser.name}</p>
+      <button>User</button>
+      <button onClick={logOut}>Log Out</button>
+    </>
+  
+  
   function logOut(){
     fetch("/logout", {method: 'DELETE'})
     dispatch(setLoggedIn(false))
-    history.push('/')
-}
+    history("/")
+  }
 
   return (
     <div>
-        <h1>Adnat</h1>
-        <button onClick={logOut}>Log Out</button>
+        <Link exact to="/"><h1>Adnat</h1></Link>
+        {loggedIn? userItems : null}
     </div>
   )
 }

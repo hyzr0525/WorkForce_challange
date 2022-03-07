@@ -1,8 +1,11 @@
 import React from 'react'
 import {useState} from 'react'
+import {useDispatch} from 'react-redux'
+import {setCurrentUser, setLoggedIn} from '../states/action/actionCreater'
 
 function SignInForm() {
 
+    const dispatch = useDispatch()
     const [input, setInput] = useState({
         email_address: "",
         password: "",
@@ -21,8 +24,13 @@ function SignInForm() {
         })
         .then(res => res.json())
         .then(currentUser => {
-            console.log(currentUser)
-        })
+            if(currentUser.error){
+                dispatch(setLoggedIn(false))
+            }else{
+            dispatch(setCurrentUser(currentUser))
+            dispatch(setLoggedIn(true))
+            }
+          })
     }
 
   return (

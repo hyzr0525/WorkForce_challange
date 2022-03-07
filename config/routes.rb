@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :shifts
+  resources :shifts, only:[:show, :index, :create, :update, :destroy]
   resources :users, only:[:show, :create, :update]
   resources :organisations
   
