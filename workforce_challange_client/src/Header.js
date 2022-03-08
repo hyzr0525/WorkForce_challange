@@ -13,7 +13,7 @@ function Header() {
   const userItems = 
     <>
       <p>Logged in as {currentUser.name}</p>
-      <button>User</button>
+      <Link exact to="/User"><button>User</button></Link>
       <button onClick={logOut}>Log Out</button>
     </>
   

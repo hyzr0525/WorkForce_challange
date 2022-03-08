@@ -1,6 +1,6 @@
 import React from 'react'
 import {useSelector, useDispatch} from "react-redux"
-
+import {Link} from "react-router-dom"
 
 function UserPage() {
 
@@ -13,7 +13,7 @@ function UserPage() {
         <h3>Password: ******</h3>
         <h3>Organisations joined: {currentUser.organisation.name}</h3>
         <button>Edit</button>
-        <button>Reset Password</button>
+        <Link exact to="/Reset"><button>Reset Password</button></Link>
     </div>
   )
 }
