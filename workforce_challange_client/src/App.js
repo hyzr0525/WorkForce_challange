@@ -7,12 +7,12 @@ import Header from './Header';
 import {useDispatch} from "react-redux"
 import {setCurrentUser, setLoggedIn} from "./states/action/actionCreater"
 import UserPage from "./userPage/UserPage"
+import ResetPassword from './logInPage/ResetPassword';
 
 function App() {
 
   const dispatch = useDispatch();
   
-
   useEffect(()=>{
     fetch("http://localhost:3000/organisations")
     .then(res => res.json())
@@ -39,6 +39,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<LogInPage />} />
         <Route exact path="/User" element={<UserPage />} />
+        <Route exact path="/Reset" element={<ResetPassword />} />
       </Routes>
     </div>
   );

@@ -19,12 +19,13 @@ class UsersController < ApplicationController
     end
 
     def update
-        user = User.find_by(id: params[:id])
+        user = User.find_by(email_address: params[:email_address])
+        byebug
         if user
             user.update(user_params)
             render json: user
         else
-            render json: {error: "invalid inputs"}, status: :unprocessable_entity
+            render json: {error: "Please Confirm Your Email Address"}, status: :unprocessable_entity
         end
     end
 
