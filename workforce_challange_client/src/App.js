@@ -5,7 +5,7 @@ import {useEffect, useState} from 'react'
 import {Route, Routes} from 'react-router-dom'
 import Header from './Header';
 import {useDispatch} from "react-redux"
-import {setCurrentUser, setLoggedIn} from "./states/action/actionCreater"
+import {setCurrentUser, setOrganisations, setLoggedIn} from "./states/action/actionCreater"
 import UserPage from "./userPage/UserPage"
 import ResetPassword from './logInPage/ResetPassword';
 
@@ -16,7 +16,7 @@ function App() {
   useEffect(()=>{
     fetch("http://localhost:3000/organisations")
     .then(res => res.json())
-    .then(organisations => console.log(organisations))
+    .then(organisations => dispatch(setOrganisations(organisations)))
 
     fetch('/me')
     .then(res => res.json())

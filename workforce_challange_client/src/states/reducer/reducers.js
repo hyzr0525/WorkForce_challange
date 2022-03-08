@@ -17,3 +17,12 @@ export const setLoggedIn = (state = false, action) =>{
             return state
     }
 }
+
+export const setOrganisations = (state=[], action) =>{
+    switch(action.type){
+        case ActionTypes.SET_ORGANISATIONS:
+            return state = action.payload;
+        default:
+            return state
+    }
+}

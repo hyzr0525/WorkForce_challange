@@ -14,13 +14,16 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             render json: user, status: :ok
         else
-            render json: user.errors.full_messages, status: :unprocessable_entity
+            
+            render json: {error: user.errors.full_messages}, 
+            status: :unprocessable_entity
+            
         end
+        
     end
 
     def update
         user = User.find_by(email_address: params[:email_address])
-        byebug
         if user
             user.update(user_params)
             render json: user

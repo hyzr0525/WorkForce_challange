@@ -1,63 +1,75 @@
 import React from 'react'
 import {useState} from 'react'
+import {useDispatch, useSelector} from "react-redux"
+import {setCurrentUser, setLoggedIn} from "../states/action/actionCreater"
 
 function SignUpForm() {
+
+    const dispatch = useDispatch()
+    const organisations = useSelector((state) => state.setOrganisations)
 
     const [input, setInput] = useState({
         name: "",
         email_address: "",
         password: "",
-        password_confirmation: ""
+        password_confirmation: "",
+        organisation_id: organisations[0].id
     })
+    console.log(input)
 
-    function signInInput(e){
+    function signUpInput(e){
         setInput({...input, [e.target.name]: e.target.value})
     }
 
-    function handleLogIn(e) {
+    function handleSignUp(e) {
         e.preventDefault()
-        fetch("/signup", {
+        fetch("http://localhost:3000/users", {
             method: 'POST',
             headers: {'Content-Type': "application/json"},
             body: JSON.stringify(input)
         })
         .then(res => res.json())
         .then(currentUser => {
-            console.log(currentUser)
-        })
+            if(currentUser.error){
+                dispatch(setLoggedIn(false))
+            }else{
+            dispatch(setCurrentUser(currentUser))
+            dispatch(setLoggedIn(true))
+            }
+          })
     }
 
   return (
     <div>
         <h1>Sign Up</h1>
-        <form onSubmit={handleLogIn}>
+        <form onSubmit={handleSignUp}>
 
             <label>Name</label>
             <input 
             type="text"
             name='name'
-            onChange={signInInput}
+            onChange={signUpInput}
             />
 
             <label>Email</label>
             <input 
             type="text"
             name='email_address'
-            onChange={signInInput}
+            onChange={signUpInput}
             />
 
             <label>Password</label>
             <input 
             type="password"
             name='password'
-            onChange={signInInput}
+            onChange={signUpInput}
             />
 
             <label>Password confirmation</label>
             <input 
             type="password"
             name='password_confirmation'
-            onChange={signInInput}
+            onChange={signUpInput}
             />
 
             <button type='submit'>Sign Up</button>

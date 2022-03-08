@@ -13,3 +13,10 @@ export const setLoggedIn = (boolean) => {
         payload: boolean,
     }
 }
+
+export const setOrganisations = (organisations) => {
+    return {
+        type: ActionTypes.SET_ORGANISATIONS,
+        payload: organisations,
+    }
+}

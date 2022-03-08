@@ -6,12 +6,14 @@ function UserPage() {
 
     const dispatch = useDispatch()
     const currentUser = useSelector((state)=> state.setCurrentUser)
+
+    
   return (
     <div>
         <h3>Name: {currentUser.name}</h3>
         <h3>Email Address: {currentUser.email_address}</h3>
         <h3>Password: ******</h3>
-        <h3>Organisations joined: {currentUser.organisation.name}</h3>
+       
         <button>Edit</button>
         <Link exact to="/Reset"><button>Reset Password</button></Link>
     </div>
@@ -19,3 +21,5 @@ function UserPage() {
 }
 
 export default UserPage
+
+// {currentUser.organisation.name? <h3>Organisations joined: {currentUser.organisation.name}</h3> : <h3>Organisations joined: You have not joined any organisations</h3>}

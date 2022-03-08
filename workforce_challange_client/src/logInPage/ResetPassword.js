@@ -7,7 +7,7 @@ function ResetPassword() {
     const [input, setInput] = useState({
         email_address: "",
         password: "",
-        password_confirmation: ""
+        password_confirmation: "",
     })
 
     function formFill(e){
@@ -47,6 +47,7 @@ function ResetPassword() {
                 name='password_confirmation'
                 onChange={formFill}
             />
+
             <button type='submit'>submit</button>
         </form>
     </div>
