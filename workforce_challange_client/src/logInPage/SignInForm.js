@@ -5,7 +5,7 @@ import {setCurrentUser, setLoggedIn} from '../states/action/actionCreater'
 import {Link, useNavigate} from 'react-router-dom'
 
 
-function SignInForm() {
+function SignInForm({setFormSwitch}) {
 
     const dispatch = useDispatch()
     const [input, setInput] = useState({
@@ -54,6 +54,7 @@ function SignInForm() {
             <button type='submit'>Log in</button>
         </form>
         <Link exact to= '/Reset'>forgot password?</Link>
+        <button onClick={() =>setFormSwitch(false)}>Sign Up</button>
     </div>
   )
 }

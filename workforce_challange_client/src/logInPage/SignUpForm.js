@@ -3,7 +3,7 @@ import {useState} from 'react'
 import {useDispatch, useSelector} from "react-redux"
 import {setCurrentUser, setLoggedIn} from "../states/action/actionCreater"
 
-function SignUpForm() {
+function SignUpForm({setFormSwitch}) {
 
     const dispatch = useDispatch()
     const organisations = useSelector((state) => state.setOrganisations)
@@ -41,7 +41,7 @@ function SignUpForm() {
 
   return (
     <div>
-        <h1>Sign Up</h1>
+        <h2>Sign Up</h2>
         <form onSubmit={handleSignUp}>
 
             <label>Name</label>
@@ -72,8 +72,9 @@ function SignUpForm() {
             onChange={signUpInput}
             />
 
-            <button type='submit'>Sign Up</button>
+            <button type='submit'>Submit</button>
         </form>
+            <button onClick={()=>setFormSwitch(true)}>Sign In Insted</button>
     </div>
   )
 }
