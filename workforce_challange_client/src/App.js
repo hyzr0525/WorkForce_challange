@@ -8,6 +8,7 @@ import {useDispatch} from "react-redux"
 import {setCurrentUser, setOrganisations, setLoggedIn} from "./states/action/actionCreater"
 import UserPage from "./userPage/UserPage"
 import ResetPassword from './logInPage/ResetPassword';
+import OrganisationsPage from './organisationsPage/OrganisationsPage';
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
         <Route exact path="/" element={<LogInPage />} />
         <Route exact path="/User" element={<UserPage />} />
         <Route exact path="/Reset" element={<ResetPassword />} />
+        <Route exact path="/Home" element={<OrganisationsPage />} />
       </Routes>
     </div>
   );

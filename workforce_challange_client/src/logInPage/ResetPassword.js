@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState} from "react"
 import {useDispatch} from  "react-redux"
+import {useNavigate, Link} from "react-router-dom"
 
 function ResetPassword() {
 
@@ -50,6 +51,7 @@ function ResetPassword() {
 
             <button type='submit'>submit</button>
         </form>
+            <Link path to="/"><button>Back</button></Link>
     </div>
   )
 }
