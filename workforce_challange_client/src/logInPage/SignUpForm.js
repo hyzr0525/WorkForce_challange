@@ -1,19 +1,17 @@
 import React from 'react'
 import {useState} from 'react'
-import {useDispatch, useSelector} from "react-redux"
+import {useDispatch} from "react-redux"
 import {setCurrentUser, setLoggedIn} from "../states/action/actionCreater"
 
 function SignUpForm({setFormSwitch}) {
 
     const dispatch = useDispatch()
-    const organisations = useSelector((state) => state.setOrganisations)
 
     const [input, setInput] = useState({
         name: "",
         email_address: "",
         password: "",
         password_confirmation: "",
-        organisation_id: organisations[0].id
     })
     console.log(input)
 

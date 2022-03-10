@@ -5,6 +5,7 @@ import {useNavigate, Link} from "react-router-dom"
 
 function ResetPassword() {
 
+    let history = useNavigate()
     const [input, setInput] = useState({
         email_address: "",
         password: "",
@@ -23,8 +24,11 @@ function ResetPassword() {
             body: JSON.stringify(input)
         })
         .then(res => res.json())
-        .then(user => console.log(user))
-    }
+        .then(user => {
+            console.log(user)
+            history('/User')
+        }
+        )}
     
   return (
     <div>
