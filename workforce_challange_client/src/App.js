@@ -15,9 +15,9 @@ function App() {
   const dispatch = useDispatch();
   
   useEffect(()=>{
-    fetch("http://localhost:3000/organisations")
-    .then(res => res.json())
-    .then(organisations => dispatch(setOrganisations(organisations)))
+    // fetch("http://localhost:3000/organisations")
+    // .then(res => res.json())
+    // .then(organisations => dispatch(setOrganisations(organisations)))
 
     fetch('/me')
     .then(res => res.json())

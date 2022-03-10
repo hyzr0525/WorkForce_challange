@@ -1,20 +1,31 @@
 import React from 'react'
-import {useSelector} from "react-redux"
-import {useState} from "react"
+import {useSelector, useDispatch} from "react-redux"
+import {useState, useEffect} from "react"
 import CreateForm from './CreateForm'
+import {setOrganisations} from "../states/action/actionCreater"
+import EditOrganisation from './EditOrganisation'
+import OrgnisationList from './OrgnisationList'
 
 
 function OrganisationsPage() {
 
     const [create, setCreate] = useState(false)
+    const [update, setUpdate] = useState(false)
+    const [organisation, setOrganisation] = useState([])
     const organisations = useSelector((state)=> state.setOrganisations)
+    const dispatch = useDispatch()
 
-    const starterText = <p>You aren't a member of any organisations. Joint an existing one or create a new one.</p>
+    const starterText = <p>You aren't a member of any organisations. Join an existing one or create a new one.</p>
 
-    const organisationList = organisations.map((organisation) => <>
-        <li>{organisation.name}</li>
-        <button>Edit</button>
-    </>)
+    const organisationList = organisations.map((organisation) => <OrgnisationList organisation={organisation} setUpdate={setUpdate}setOrganisation={setOrganisation} />)
+
+
+
+    useEffect(()=>{
+    fetch("http://localhost:3000/organisations")
+    .then(res => res.json())
+    .then(organisations => dispatch(setOrganisations(organisations)))
+    }, [update, create])
 
   return (
     <div>
@@ -25,6 +36,7 @@ function OrganisationsPage() {
         </ul>
         <button onClick={()=>setCreate(true)}>Create Organisation</button>
         {create? <CreateForm create={create} setCreate={setCreate}/>:null}
+        {update? <EditOrganisation update={update} setUpdate={setUpdate} organisation={organisation}/>:null}
     </div>
   )
 }

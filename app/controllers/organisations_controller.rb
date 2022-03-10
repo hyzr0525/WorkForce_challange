@@ -36,9 +36,9 @@ class OrganisationsController < ApplicationController
     def destroy
         organisation = Organisation.find_by(id: params[:id])
         if organisation
-            organisations = Organisation.all
             organisation.destroy
-            render json: organisation
+            organisations = Organisation.all
+            render json: organisations
         else 
             render json: {error: "organisation not found"}, status: :not_found
         end
@@ -47,6 +47,6 @@ class OrganisationsController < ApplicationController
     private
 
     def organisation_params
-        params.permit(:name, :hourly_rate)
+        params.permit(:name, :hourly_rate, :id)
     end
 end
