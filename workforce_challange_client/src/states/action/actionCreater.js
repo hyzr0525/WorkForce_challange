@@ -20,3 +20,10 @@ export const setOrganisations = (organisations) => {
         payload: organisations,
     }
 }
+
+export const getOrganisationInfo = (organisation) => {
+    return {
+        type: ActionTypes.GET_ORGANISATION_INFO,
+        payload: organisation,
+    }
+}

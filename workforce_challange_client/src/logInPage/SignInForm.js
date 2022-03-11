@@ -7,6 +7,7 @@ import {Link, useNavigate} from 'react-router-dom'
 
 function SignInForm({setFormSwitch}) {
 
+    const redirect = useNavigate()
     const dispatch = useDispatch()
     const [input, setInput] = useState({
         email_address: "",
@@ -31,6 +32,7 @@ function SignInForm({setFormSwitch}) {
             }else{
             dispatch(setCurrentUser(currentUser))
             dispatch(setLoggedIn(true))
+            redirect("/Home")
             }
           })
     }

@@ -1,17 +1,27 @@
 class ShiftsController < ApplicationController
+
     def index
-        user_shifts = current_user.shifts
+        user_shifts = Shift.all
         render json: user_shifts
     end
 
     def show
-        shift = current_user.shifts.find_by(id: params[:id])
+        shift = Shift.find_by(id: params[:id])
         if shift
             render json: shift
         else 
             render json: {error: "Shift not found"}, status: :not_found
         end
     end
+
+    # def show
+    #     shift = current_user.shifts.find_by(id: params[:id])
+    #     if shift
+    #         render json: shift
+    #     else 
+    #         render json: {error: "Shift not found"}, status: :not_found
+    #     end
+    # end
 
     def create
         new_shift = current_user.shifts.new(shifts_params)

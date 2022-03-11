@@ -26,3 +26,12 @@ export const setOrganisations = (state=[], action) =>{
             return state
     }
 }
+
+export const getOrganisationInfo = (state=[], action) =>{
+    switch(action.type){
+        case ActionTypes.GET_ORGANISATION_INFO:
+            return state = action.payload;
+        default:
+            return state
+    }
+}

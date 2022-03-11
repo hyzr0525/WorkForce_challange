@@ -5,6 +5,7 @@ class UserOrganisationsController < ApplicationController
         render json: organisations
     end
 
+
     def create
         userOrganisation = UserOrganisation.new(userOrganisation_params)
         if userOrganisation.save
