@@ -27,7 +27,7 @@ function OrgnisationList({organisation, setUpdate}) {
          break
       }
     }
-  }, [user])
+  }, [isJoined])
 
     function setState (){
         setUpdate(true)

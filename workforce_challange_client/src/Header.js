@@ -26,7 +26,7 @@ function Header() {
 
   return (
     <div>
-        <Link exact to="/"><h1>Adnat</h1></Link>
+        <Link exact to="/Home"><h1>Adnat</h1></Link>
         {loggedIn? userItems : null}
     </div>
   )

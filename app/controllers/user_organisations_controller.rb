@@ -15,6 +15,17 @@ class UserOrganisationsController < ApplicationController
         end
     end
 
+    def destroy
+        userOrganisation = UserOrganisation.find_by(id: params[:id])
+        if userOrganisation
+            userOrganisation.destroy
+            userOrganisations = UserOrganisation.all
+            render json: userOrganisations
+        else 
+            render json: {error: "User organisation not found"}, status: :not_found
+        end
+    end
+
     private
 
     def userOrganisation_params

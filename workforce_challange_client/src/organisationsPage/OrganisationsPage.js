@@ -11,7 +11,6 @@ function OrganisationsPage() {
 
     const [create, setCreate] = useState(false)
     const [update, setUpdate] = useState(false)
-    // const [organisation, setOrganisation] = useState([])
     const organisations = useSelector((state)=> state.setOrganisations)
     const dispatch = useDispatch()
     const organisation = useSelector((state) => state.getOrganisationInfo)
