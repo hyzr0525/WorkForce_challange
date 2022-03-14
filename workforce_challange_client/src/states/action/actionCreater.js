@@ -27,3 +27,10 @@ export const getOrganisationInfo = (organisation) => {
         payload: organisation,
     }
 }
+
+export const getOrganisationShifts = (shifts) => {
+    return {
+        type: ActionTypes.GET_ORGANISATION_SHIFTS,
+        payload: shifts,
+    }
+}

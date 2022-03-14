@@ -35,3 +35,12 @@ export const getOrganisationInfo = (state=[], action) =>{
             return state
     }
 }
+
+export const getOrganisationShifts = (state=[], action) =>{
+    switch(action.type){
+        case ActionTypes.GET_ORGANISATION_SHIFTS:
+            return state = action.payload;
+        default:
+            return state
+    }
+}

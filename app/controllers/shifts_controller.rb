@@ -24,7 +24,7 @@ class ShiftsController < ApplicationController
     # end
 
     def create
-        new_shift = current_user.shifts.new(shifts_params)
+        new_shift = Shift.new(shifts_params)
         if new_shift.save
             render json: new_shift
         else 
@@ -56,6 +56,6 @@ class ShiftsController < ApplicationController
     private
 
     def shifts_params
-        params.permit(:start, :finish, :break_length, :user_id)
+        params.permit(:start, :finish, :break_length, :user_id, :organisation_id, :shift)
     end
 end

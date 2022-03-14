@@ -6,16 +6,8 @@ import {useSelector} from "react-redux"
 
 function ShiftsRow({shifts}) {
 
-    const [name, setName] = useState([])
-    const id = shifts.id
     const hourRate = useSelector((state) => state.getOrganisationInfo.hourly_rate)
     
-    useEffect(()=>{
-    fetch(`http://localhost:3000/shifts/${id}`)
-    .then(res => res.json())
-    .then(data => setName(data.user.name))
-    })
-
     const shiftDate = (datetime) =>{
         const date = datetime.split("T")
         return date[0]
@@ -43,13 +35,11 @@ function ShiftsRow({shifts}) {
 
     const hrWorked = hoursWorked(startTime(shifts.start),finishTime(shifts.finish), shifts.break_length)
 
-    console.log(hrWorked * hourRate )
-    
 
   return (
     <>
         <tr>
-            <td>{name}</td>
+            <td>{shifts.user.name}</td>
             <td>{shiftDate(shifts.start)}</td>
             <td>{startTime(shifts.start)}</td>
             <td>{finishTime(shifts.finish)}</td>

@@ -6,7 +6,7 @@ class OrganisationsController < ApplicationController
     end
 
     def show
-        organisation = Organisation.find_by(id: params[:id])
+        organisation = Organisation.find_by(id: params[:id]).organisation_shifts
         if organisation
             render json: organisation
         else 
