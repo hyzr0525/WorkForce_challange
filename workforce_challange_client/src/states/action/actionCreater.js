@@ -34,3 +34,10 @@ export const getOrganisationShifts = (shifts) => {
         payload: shifts,
     }
 }
+
+export const setRerender = (boolean) => {
+    return {
+        type: ActionTypes.SET_RERENDER,
+        payload: boolean,
+    }
+}

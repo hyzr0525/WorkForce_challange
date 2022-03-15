@@ -6,19 +6,10 @@ function CreateShift({setOpen}) {
 
     const currentUser = useSelector((state) => state.setCurrentUser)
     const currentOrg = useSelector((state) => state.getOrganisationInfo)
-    
-    const [timeInput, setTimeInput] = useState({
-        startDate: "",
-        start: "",
-        finishDate: "",
-        finish: ""
-    })
-    const startTime = `${timeInput.startDate} ${timeInput.start}`
-    const finishTime = `${timeInput.finishDate} ${timeInput.finish}`
 
     const [newShiftInput , setNewShiftInput] = useState({
-        start: startTime,
-        finish: finishTime,
+        start: "",
+        finish: "",
         break_length: "",
         user_id: currentUser.id,
         organisation_id: currentOrg.id
@@ -54,25 +45,12 @@ function CreateShift({setOpen}) {
             name='start'
             onChange={formInput}
         />
-        {/* <label>Start time</label>
-        <input
-            type="text"
-            name="start"
-            onChange={formInput}
-        /> */}
         <label>Finish date</label>
         <input
             type="datetime-local"
             name='finish'
             onChange={formInput}
         />
-        {/* <label>Finish time</label>
-        <input
-            type="text"
-            name="finish"
-            placeholder='HH:MM'
-            onChange={(e) => setTimeInput({...timeInput, [e.target.name]: e.target.value})}
-        /> */}
         <label>Break length(minutes)</label>
         <input
             type="text"

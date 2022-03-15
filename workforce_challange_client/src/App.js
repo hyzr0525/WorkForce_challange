@@ -15,7 +15,6 @@ function App() {
 
   const dispatch = useDispatch();
   
-
   useEffect(()=>{
     fetch('/me')
     .then(res => res.json())
@@ -25,8 +24,7 @@ function App() {
       dispatch(setLoggedIn(false))
       console.log(user.error)}
       else {
-      dispatch(setLoggedIn(true))
-    console.log(user)}
+      dispatch(setLoggedIn(true))}
     })
 
   }, [])

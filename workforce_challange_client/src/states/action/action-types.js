@@ -4,4 +4,5 @@ export const ActionTypes = {
     SET_ORGANISATIONS: "setOrganisations",
     GET_ORGANISATION_INFO: "getOrganisationInfo",
     GET_ORGANISATION_SHIFTS: "getOrganisationShifts",
+    SET_RERENDER: "setRerender"
 }

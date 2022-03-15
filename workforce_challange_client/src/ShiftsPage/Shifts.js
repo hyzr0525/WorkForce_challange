@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from "react-redux"
 import {useState, useEffect} from "react"
 import { useNavigate } from 'react-router-dom'
 import ShiftsRow from './ShiftsRow'
-import { getOrganisationShifts } from '../states/action/actionCreater'
+import { getOrganisationShifts, setRerender } from '../states/action/actionCreater'
 import CreateShift from './CreateShift'
 import EditOrganisation from '../organisationsPage/EditOrganisation'
 
@@ -31,7 +31,6 @@ function Shifts() {
     }
 
     const userOrgId = userOrganisationId(userOrg)
-    console.log(userOrgId)
     
     useEffect(()=>{
         fetch(`http://localhost:3000/organisations/${id}`)
@@ -41,6 +40,7 @@ function Shifts() {
     
     function handleLeave(){
         fetch(`/user_organisations/${userOrgId}`, {method: 'DELETE'})
+        dispatch(setRerender(true))
         redirect("/Home")
     }
 

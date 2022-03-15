@@ -1,6 +1,6 @@
 import React from 'react'
 import {useDispatch, useSelector} from "react-redux"
-import {getOrganisationInfo} from "../states/action/actionCreater"
+import {getOrganisationInfo, setRerender} from "../states/action/actionCreater"
 import {useState, useEffect} from "react"
 import {useNavigate} from "react-router-dom"
 
@@ -27,7 +27,7 @@ function OrgnisationList({organisation, setUpdate}) {
          break
       }
     }
-  }, [isJoined])
+  }, [])
 
     function setState (){
         setUpdate(true)
@@ -46,8 +46,10 @@ function OrgnisationList({organisation, setUpdate}) {
         body: JSON.stringify(joinInput)
       })
       .then(res => res.json())
-      .then(userOrganisation => console.log(userOrganisation))
-          
+      .then(userOrganisation =>{ 
+        dispatch(getOrganisationInfo(organisation))
+        redirect("/OrganisationShifts")})
+        setIsJoined(true)
     }
     
   return (

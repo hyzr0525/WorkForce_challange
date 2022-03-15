@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux'
-import { setCurrentUser, setLoggedIn, setOrganisations, getOrganisationInfo, getOrganisationShifts } from './reducers'
+import { setCurrentUser, setLoggedIn, setOrganisations, getOrganisationInfo, getOrganisationShifts, setRerender } from './reducers'
 
 
 const allReducers = combineReducers({
@@ -8,6 +8,7 @@ const allReducers = combineReducers({
     setOrganisations: setOrganisations,
     getOrganisationInfo: getOrganisationInfo,
     getOrganisationShifts: getOrganisationShifts,
+    setRerender: setRerender,
 })
 
 export default allReducers

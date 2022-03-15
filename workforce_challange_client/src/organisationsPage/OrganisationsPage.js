@@ -2,7 +2,7 @@ import React from 'react'
 import {useSelector, useDispatch} from "react-redux"
 import {useState, useEffect} from "react"
 import CreateForm from './CreateForm'
-import {setOrganisations} from "../states/action/actionCreater"
+import {setOrganisations, setRerender} from "../states/action/actionCreater"
 import EditOrganisation from './EditOrganisation'
 import OrgnisationList from './OrgnisationList'
 
@@ -12,6 +12,7 @@ function OrganisationsPage() {
     const [create, setCreate] = useState(false)
     const [update, setUpdate] = useState(false)
     const organisations = useSelector((state)=> state.setOrganisations)
+    const reRender = useSelector((state) => state.setRerender)
     const dispatch = useDispatch()
     const organisation = useSelector((state) => state.getOrganisationInfo)
 

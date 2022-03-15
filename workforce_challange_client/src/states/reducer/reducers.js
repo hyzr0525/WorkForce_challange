@@ -44,3 +44,18 @@ export const getOrganisationShifts = (state=[], action) =>{
             return state
     }
 }
+
+export const setRerender = (state = true, action) =>{
+    switch(action.type){
+        case ActionTypes.SET_RERENDER:
+            if(action.payload == false){
+                state = true;
+                return state;
+            } else{
+                state = false;
+                return state;
+            }
+        default:
+            return state
+    }
+}
