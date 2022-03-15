@@ -4,7 +4,9 @@
 # Technology Stack
 
 FrontEnd: React, Redux
+<br />
 BackEnd: Ruby on Rails
+<br />
 DataBase: SQLite
 
 
