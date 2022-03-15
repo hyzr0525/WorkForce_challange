@@ -45,15 +45,15 @@ function EditOrganisation({update, setUpdate, organisation}) {
       <div className='OverLay'>
         <div className='FormStyle'>
         <h1>Edit Organisation</h1>
-        <form onSubmit={createOrganisation} >
+        <form className="signIn" onSubmit={createOrganisation} >
         <label>Name</label>
         <input
             type="text"
             name='name'
             onChange={formInput}
         />
-        <label>Hourly Rate</label>
-        $:<input
+        <label>Hourly Rate $:</label>
+        <input
             type="text"
             name="hourly_rate"
             onChange={formInput}

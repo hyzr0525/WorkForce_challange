@@ -62,15 +62,18 @@ function Shifts() {
     </>
 
   return (
-    <div>
+    <div className='mainContainer'>
+        <div>
         <h1>{organisation.name}</h1>
-        <button onClick={()=> setViewShifts(true)}>view Shifts</button>
+        <button onClick={()=> setViewShifts(true)}>View Shifts</button>
         <button onClick={()=> setUpdate(true)}>Edit</button>
+        <button onClick={() => redirect("/Home")}>Back</button>
         {update? <EditOrganisation update={update} setUpdate={setUpdate} organisation={organisation}/>:null}
         <button onClick={handleLeave}>Leave {organisation.name}</button>
         {viewShifts? shiftTable:null}
         {viewShifts? <button onClick={()=>setOpen(true)}>Create Shift</button>:null}
         {open? <CreateShift setOpen={setOpen} /> : null}
+    </div>
     </div>
   )
 }

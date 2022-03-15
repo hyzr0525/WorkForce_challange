@@ -30,15 +30,17 @@ function OrganisationsPage() {
   
 
   return (
-    <div>
+    <div className='mainContainer'>
+      <div>
         {organisations? null : starterText}
         <h1>Organisations</h1>
         <ul>
             {organisationList}
         </ul>
-        <button onClick={()=>setCreate(true)}>Create Organisation</button>
+        <button onClick={()=>setCreate(true)}>+ Create Organisation</button>
         {create? <CreateForm create={create} setCreate={setCreate}/>:null}
         {update? <EditOrganisation update={update} setUpdate={setUpdate} organisation={organisation}/>:null}
+        </div>
     </div>
   )
 }

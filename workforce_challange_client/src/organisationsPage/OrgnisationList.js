@@ -51,12 +51,15 @@ function OrgnisationList({organisation, setUpdate}) {
     }
     
   return (
+
+    <div className='orgList'>
+        <h3>{organisation.name}</h3>
     <div>
-        <li>{organisation.name}</li>
-        <button onClick={setState}>Edit</button>
-        {isJoined?  <button onClick={setOrg}>View</button>:<button onClick={handleJoin}>Join</button>}
-        
+        <button className='button2' onClick={setState}>Edit</button>
+        {isJoined?  <button className='button2' onClick={setOrg}>View</button>:<button className='button2' onClick={handleJoin}>Join</button>}
     </div>
+    </div>
+  
   )
 }
 

@@ -38,9 +38,9 @@ function SignInForm({setFormSwitch}) {
     }
 
   return (
-    <div>
+    <div >
         <h2>Log in</h2>
-        <form onSubmit={handleLogIn}>
+        <form className='signIn' onSubmit={handleLogIn}>
             <label>Email</label>
             <input 
             type="text"

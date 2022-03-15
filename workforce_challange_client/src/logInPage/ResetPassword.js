@@ -31,9 +31,10 @@ function ResetPassword() {
         )}
     
   return (
-    <div>
+    <div className='formContainer'>
+        <div>
         <h1>Reset Password</h1>
-        <form onSubmit={resetPassword}>
+        <form className='signIn' onSubmit={resetPassword}>
             <label>Email Address</label>
             <input
                 type="text"
@@ -56,6 +57,7 @@ function ResetPassword() {
             <button type='submit'>submit</button>
         </form>
             <Link path to="/"><button>Back</button></Link>
+        </div>
     </div>
   )
 }

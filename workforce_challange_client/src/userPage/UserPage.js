@@ -51,7 +51,8 @@ function UserPage() {
     
     
   return (
-    <div>
+    <div className='mainContainer'>
+      <div>
         <form onSubmit={handleEdit}>
           <h3>Name: {currentUser.name}</h3>
           {edit? nameInput:null}
@@ -63,6 +64,7 @@ function UserPage() {
         {edit? null:<button onClick={()=>setEdit(true)}>Edit</button>}
         {edit? <button onClick={()=>setEdit(false)}>Back</button>: null}
         <Link exact to="/Reset"><button>Reset Password</button></Link>
+    </div>
     </div>
   )
 }

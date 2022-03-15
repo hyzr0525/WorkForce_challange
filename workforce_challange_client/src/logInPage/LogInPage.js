@@ -11,7 +11,7 @@ function LogInPage() {
   const form = formSwitch? <SignInForm setFormSwitch={setFormSwitch}/> : <SignUpForm setFormSwitch={setFormSwitch}/>
 
   return (
-    <div>
+    <div className='formContainer'>
       {form}
     </div>
   )

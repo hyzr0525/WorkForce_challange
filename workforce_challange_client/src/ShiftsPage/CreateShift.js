@@ -47,7 +47,7 @@ function CreateShift({setOpen}) {
   return (
     <div className='OverLay'>
         <div className='FormStyle'>
-        <form onSubmit={createShift} >
+        <form className="signIn" onSubmit={createShift} >
         <label>Start date</label>
         <input
             type="datetime-local"
@@ -82,7 +82,6 @@ function CreateShift({setOpen}) {
         <button type="submit">Create</button>
         </form>
         <button onClick={()=>setOpen(false)}>Back</button>
-        <button onClick={console.log(newShiftInput)}>Click</button>
         </div>
     </div>
   )

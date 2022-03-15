@@ -8,25 +8,26 @@ function Header() {
   const dispatch = useDispatch()
   const loggedIn = useSelector((state)=> state.setLoggedIn)
   const currentUser = useSelector((state) => state.setCurrentUser)
-  let history = useNavigate()
+  let redirect = useNavigate()
 
   const userItems = 
-    <>
+    <div className='NavItem'>
       <p>Logged in as {currentUser.name}</p>
-      <Link exact to="/User"><button>User</button></Link>
-      <button onClick={logOut}>Log Out</button>
-    </>
+      <button className='button2' onClick={()=>redirect("/Home")}>Home</button>
+      <Link exact to="/User"><button className='button2'>User</button></Link>
+      <button className="button2" onClick={logOut}>Log Out</button>
+    </div>
   
   
   function logOut(){
     fetch("/logout", {method: 'DELETE'})
     dispatch(setLoggedIn(false))
-    history("/")
+    redirect("/")
   }
 
   return (
-    <div>
-        <Link exact to="/Home"><h1>Adnat</h1></Link>
+    <div className="Header">
+        <h1 className='logo'>Adnat</h1>
         {loggedIn? userItems : null}
     </div>
   )

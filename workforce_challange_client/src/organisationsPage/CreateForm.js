@@ -33,15 +33,15 @@ function CreateForm({create, setCreate}){
   return (
       <div className='OverLay'>
         <div className='FormStyle'>
-        <form onSubmit={createOrganisation} >
+        <form className='signIn' onSubmit={createOrganisation} >
         <label>Name</label>
         <input
             type="text"
             name='name'
             onChange={formInput}
         />
-        <label>Hourly Rate</label>
-        $:<input
+        <label>Hourly Rate $:</label>
+        <input
             type="text"
             name="hourly_rate"
             onChange={formInput}
