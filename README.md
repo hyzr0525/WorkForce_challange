@@ -1,24 +1,33 @@
-# README
+# Basic Start-up Component Tree
+![Screenshot 2022-03-15 111047](https://user-images.githubusercontent.com/87879455/158422287-c601f088-f299-41bf-9e95-9ec180a9b0eb.png)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Technology Stack
 
-Things you may want to cover:
+FrontEnd: React, Redux
+BackEnd: Ruby on Rails
+DataBase: SQLite
 
-* Ruby version
 
-* System dependencies
+ # Set Up
 
-* Configuration
 
-* Database creation
+  Fork or clone the project to you local machine and CD to the project file.
+  
+  In your terminal run:
 
-* Database initialization
+`$ bundle install`
 
-* How to run the test suite
+`$ rails db:migrate`
 
-* Services (job queues, cache servers, search engines, etc.)
+`$ rails db:seed`
 
-* Deployment instructions
+`$ rails s`
 
-* ...
+ `<!-- Inside of a new terminal -->`
+
+ CD to workforce_challange_client
+  
+`$ npm install`
+    
+`$ npm start`
+
