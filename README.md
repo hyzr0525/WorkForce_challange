@@ -9,6 +9,10 @@ BackEnd: Ruby on Rails
 <br />
 DataBase: SQLite
 
+# Demo log-in
+Email: Bob@gmail.com
+Password: password
+
 
  # Set Up
 
